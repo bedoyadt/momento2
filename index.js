@@ -23,10 +23,16 @@ app.get("/edad/:xy", function(req, res) {
   if (req.params.xy < 17) {
     res.send("<h2>Bienbenido Eres menor de edad</h2>");
   }
-  if (req.params.xy > 18) {
+  if (req.params.xy < 150) {
     res.send("<h2>Bienbenido Eres mayor de edad</h2>");
   }
+  else  {
+    res.send("<h2>Error Edad no permitidad</h2>");
+  }
 });
+
+
+
 
 mongoose.connect(
   "mongodb://localhost:27017/momento2",
@@ -36,7 +42,7 @@ mongoose.connect(
   },
   (err, res) => {
     if (err) throw err;
-    console.log("Conectado a la DB");
+    console.log("Conectado a MONGODB");
   }
 );
 
